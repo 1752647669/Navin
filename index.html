@@ -3,93 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>王盈盈 </title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+    <title>新知领航常用页面导航</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
         }
-
-        body {
-            width: 100vw;
-            height: 100vh;
-            background: #0f0f1a;
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* 核心：名字乱飞动画 */
-        .name {
-            position: absolute;
-            color: #fff;
-            font-weight: bold;
-            white-space: nowrap;
-            animation: fly 8s linear infinite;
-            /* 随机透明度 */
-            opacity: 0.8;
-            /* 禁止选中 */
-            user-select: none;
-        }
-
-        /* 飘移动画 */
-        @keyframes fly {
-            0% {
-                transform: translate(0, 0) rotate(0deg);
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .card-shadow {
+                @apply shadow-md hover:shadow-xl transition-all duration-300;
             }
-            25% {
-                transform: translate(80px, -60px) rotate(15deg);
-            }
-            50% {
-                transform: translate(-50px, 90px) rotate(-10deg);
-            }
-            75% {
-                transform: translate(100px, -30px) rotate(5deg);
-            }
-            100% {
-                transform: translate(0, 0) rotate(0deg);
+            .card-hover {
+                @apply hover:-translate-y-1 transition-transform duration-300;
             }
         }
     </style>
 </head>
-
-<body>
+<body class="bg-slate-50 dark:bg-slate-900 min-h-screen">
+    <div class="container mx-auto px-4 py-10 max-w-5xl">
+        <!-- 头部区域 -->
+        <header class="flex justify-between items-center mb-12">
+            <div>
+                <h1 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-slate-800 dark:text-white">📚 国开学习导航</h1>
+                <p class="text-slate-500 dark:text-slate-400 mt-2">快速访问各学习平台</p>
+            </div>
+            <button id="themeToggle" class="p-3 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-100">
+                <i class="fa fa-moon-o dark:hidden"></i>
+                <i class="fa fa-sun-o hidden dark:block"></i>
+            </button>
+        </header>
+        <!-- 导航卡片网格 -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <!-- 八百呼登录网址 -->
+            <a href="http://113.219.246.211:8080/voip/login.html" target="_blank" class="card-shadow card-hover block bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-100 dark:border-slate-700">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-lg bg-cyan-100 dark:bg-cyan-900 flex items-center justify-center text-cyan-600 dark:text-cyan-400 text-xl">
+                        <i class="fa fa-phone"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg text-slate-800 dark:text-white">八百呼登录网址</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">http://113.219.246.211</p>
+                    </div>
+                </div>
+            </a>
+            <!-- 实验 -->
+            <a href="https://syxy.ouchn.cn/" target="_blank" class="card-shadow card-hover block bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-100 dark:border-slate-700">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-primary text-xl">
+                        <i class="fa fa-flask"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg text-slate-800 dark:text-white">实验</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">syxy.ouchn.cn</p>
+                    </div>
+                </div>
+            </a>
+            <!-- 江开 -->
+            <a href="http://xuexi.jsou.cn/jxpt-web/index" target="_blank" class="card-shadow card-hover block bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-100 dark:border-slate-700">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-lg bg-green-100 dark:bg-green-900 flex items-center justify-center text-green-600 dark:text-green-400 text-xl">
+                        <i class="fa fa-book"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg text-slate-800 dark:text-white">江开</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">xuexi.jsou.cn</p>
+                    </div>
+                </div>
+            </a>
+            <!-- 国开 -->
+            <a href="https://one.ouchn.cn/" target="_blank" class="card-shadow card-hover block bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-100 dark:border-slate-700">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-lg bg-sky-100 dark:bg-sky-900 flex items-center justify-center text-sky-600 dark:text-sky-400 text-xl">
+                        <i class="fa fa-graduation-cap"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg text-slate-800 dark:text-white">国开</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">one.ouchn.cn</p>
+                    </div>
+                </div>
+            </a>
+            <!-- 广开 -->
+            <a href="https://course.ougd.cn/" target="_blank" class="card-shadow card-hover block bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-100 dark:border-slate-700">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-lg bg-orange-100 dark:bg-orange-900 flex items-center justify-center text-orange-600 dark:text-orange-400 text-xl">
+                        <i class="fa fa-university"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg text-slate-800 dark:text-white">广开</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">course.ougd.cn</p>
+                    </div>
+                </div>
+            </a>
+            <!-- 云开 -->
+            <a href="https://teach.ynou.edu.cn/index.action" target="_blank" class="card-shadow card-hover block bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-100 dark:border-slate-700">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-lg bg-purple-100 dark:bg-purple-900 flex items-center justify-center text-purple-600 dark:text-purple-400 text-xl">
+                        <i class="fa fa-cloud"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg text-slate-800 dark:text-white">云开</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">ynou.edu.cn</p>
+                    </div>
+                </div>
+            </a>
+            <!-- 梦工厂养号表-->
+            <a href="https://www.kdocs.cn/l/cqq3eRzEt8Dz " target="_blank" class="card-shadow card-hover block bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-100 dark:border-slate-700">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-lg bg-rose-100 dark:bg-rose-900 flex items-center justify-center text-rose-600 dark:text-rose-400 text-xl">
+                        <i class="fa fa-id-card"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg text-slate-800 dark:text-white">梦工厂养号表</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">https://www.kdocs.cn</p>
+                    </div>
+                </div>
+            </a>
+            <!-- 梦工厂新单登记表 -->
+            <a href="https://www.kdocs.cn/l/cjJeIOa9sRow" target="_blank" class="card-shadow card-hover block bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-100 dark:border-slate-700">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-lg bg-amber-100 dark:bg-amber-900 flex items-center justify-center text-amber-600 dark:text-amber-400 text-xl">
+                        <i class="fa fa-file-text-o"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-lg text-slate-800 dark:text-white">梦工厂新单登记表</h3>
+                        <p class="text-sm text-slate-500 dark:text-slate-400">https://www.kdocs.cn</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <footer class="mt-16 text-center text-slate-400 text-sm">
+            <p>梦工厂常用网址导航页</p>
+        </footer>
+    </div>
     <script>
-        // 生成满屏乱飞的 王盈盈
-        function createNames() {
-            // 生成100个名字，铺满屏幕
-            for (let i = 0; i < 100; i++) {
-                let span = document.createElement('span');
-                span.className = 'name';
-                span.innerText = '王盈盈';
-                
-                // 随机位置
-                span.style.left = Math.random() * 100 + 'vw';
-                span.style.top = Math.random() * 100 + 'vh';
-                
-                // 随机大小
-                let size = 14 + Math.random() * 36;
-                span.style.fontSize = size + 'px';
-                
-                // 随机颜色
-                let r = Math.floor(Math.random() * 255);
-                let g = Math.floor(Math.random() * 255);
-                let b = Math.floor(Math.random() * 255);
-                span.style.color = `rgb(${r}, ${g}, ${b})`;
-                
-                // 随机动画速度
-                let speed = 5 + Math.random() * 10;
-                span.style.animationDuration = speed + 's';
-                
-                // 随机延迟
-                span.style.animationDelay = Math.random() * 5 + 's';
-
-                document.body.appendChild(span);
-            }
+        // 深色浅色模式切换，本地存储记住选择
+        const toggleBtn = document.getElementById('themeToggle');
+        if(localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
         }
-
-        // 执行生成
-        createNames();
+        toggleBtn.addEventListener('click', ()=>{
+            document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.contains('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        })
     </script>
 </body>
 </html>
